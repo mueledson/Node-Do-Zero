@@ -1,9 +1,33 @@
-import { createServer } from "node:http"
+//                                  Node Puro
 
-const server = createServer((request, response) => {
-    response.write('Hello!')
+// import { createServer } from "node:http"
 
-    return response.end()
+// const server = createServer((request, response) => {
+//     response.write('Hello!')
+
+//     return response.end()
+// })
+
+// server.listen(3333)
+
+//                                  Fastify
+
+import { fastify } from "fastify";
+
+const server = fastify()
+
+server.get('/', () => {
+    return 'Opa!'
+})
+server.get('/node', () => {
+    return 'Node!'
+})
+server.get('/helo', () => {
+    return 'Hello!'
 })
 
-server.listen(3333)
+server.listen({
+    port: 3333
+})
+
+// Fastify é um microFramework
